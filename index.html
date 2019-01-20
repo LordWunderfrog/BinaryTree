@@ -9,22 +9,14 @@
 </head>
 
 <body>
-	<main>
-		<header>
-			<h1>Binary Tree Generator</h1>
-			<h2>Please enter desired number of nodes, and press 'Generate'.</h2>
-		</header>
-		
-		<section id="inputSec">
-			<div class="inputDiv">
-				<input id="nodeNum" type="number" min=1 max=100 step=1 placeholder="1-100"/>
-				<button id="genButton" type="button" onClick="GenTree(document.getElementById('nodeNum').value)">Generate</button>
-			</div>
-		</section>
-		
-		<section id="treeSec">
-		
-		</section>
-	</main>
+	<header>
+		<h1>Binary Tree Generator</h1>
+		<h4>Please enter desired number of nodes, and press 'Generate'.</h4>
+	</header>
+	<section id="inputSec">
+		<input id="nodeNum" type="number" min=1 max=100 step=1 placeholder="1-100"/>
+		<button id="genButton" type="button" onClick="GenTree(document.getElementById('nodeNum').value)">Generate</button>
+	</section>
+	<article id="treeSec"></article>
 </body>
 </html>
