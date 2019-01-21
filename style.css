@@ -13,6 +13,14 @@ body{
 	width:100vw;
 }
 
+header{
+	background:dodgerblue;
+	padding:0 1em;
+}
+
+h1, h4{
+	color:white;
+}
 #inputSec{
 	padding:.5em 1em;
 	background:#FEFEFE;
@@ -30,15 +38,6 @@ body{
 
 #inputSec > button:hover{
 	background-color:dodgerblue;
-	color:white;
-}
-
-header{
-	background:dodgerblue;
-	padding:0 1em;
-}
-
-h1, h4{
 	color:white;
 }
 
@@ -81,9 +80,15 @@ div.root{
 	margin:.5em auto;
 }
 
-div:hover,
-div:hover + ul li div{
-	background:aqua;
+div.node:hover,
+div.node:hover + ul li div{
+	background:turquoise;
+}
+
+div.node:hover + ul:before,
+div.node:hover + ul li:before,
+div.node:hover + ul ul:before{
+	border-color:steelblue;
 }
 
 li::before, ul::before{
@@ -130,6 +135,7 @@ ul::before{
 	border-right:1px solid #ccc;
 	width:50%;
 	left:0;
+	transition:border-color 0.3s ease-in;
 }
 
 li.leftBranch{
