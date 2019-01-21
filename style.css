@@ -21,6 +21,7 @@ header{
 h1, h4{
 	color:white;
 }
+
 #inputSec{
 	padding:.5em 1em;
 	background:#FEFEFE;
@@ -33,6 +34,7 @@ h1, h4{
 	background-color:white;
 	border:1px solid #CCC;
 	transition:all 0.3s ease-in;
+	transition-property:background, color;
 	cursor:pointer;
 }
 
@@ -63,7 +65,7 @@ div.node{
 	font-size:15px;
 	background:dodgerblue;
 	margin:.5em;
-	padding:12px 12px;
+	padding:12px;
 	display:inline-flex;
 	align-items:center;
 	justify-content:center;
@@ -77,9 +79,9 @@ div.node{
 div.root{
 	background:indianred;
 	display:flex;
-	margin:.5em auto;
 }
 
+/*These selectors affect all children of the hovered node*/
 div.node:hover,
 div.node:hover + ul li div{
 	background:turquoise;
@@ -91,13 +93,14 @@ div.node:hover + ul ul:before{
 	border-color:steelblue;
 }
 
+/*Shared properties of pseudo-elements for branches*/
 li::before, ul::before{
 	content:'';
+	position:absolute;
 	height:.5em;
 	border-top:1px solid #ccc;
 	top:0;
 	width:50%;
-	position:absolute;
 }
 
 li{
@@ -109,10 +112,12 @@ li{
 	align-items:center;
 }
 
+/*flex-basis of 50% for the first two children containers only*/
 div.root + ul.halfCon > li{
 	flex-basis:50%;
 }
 
+/*Horizontal branches*/
 li.leftBranch::before{
 	left:50%;
 	border-left:1px solid #ccc;
@@ -125,23 +130,24 @@ li.rightBranch::before{
 	border-radius:0 5px 0 0;
 }
 
+/*Don't display horizontal branches if children do not exist*/
 li:empty::before{
 	display:none;
 }
 
+/*Vertical branches*/
 ul::before{
 	top:-.5em;
 	border-top:0;
 	border-right:1px solid #ccc;
-	width:50%;
 	left:0;
 	transition:border-color 0.3s ease-in;
 }
 
+/*Since markup can't be relied on here, this ensures left/right branches are actually to the left/right*/
 li.leftBranch{
 	order:0;
 }
-
 li.rightBranch{
 	order:1;
 }
